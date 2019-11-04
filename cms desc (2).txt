@@ -1,0 +1,58 @@
+there are two applications that are being developed right now, ios and android.
+I need a management system for them, the applications are for helping pregnant women manage their pregnancy time.
+mobile application has:
+women who are pregnant will download the application and:
+- they will fill in name, phone, city, approximate birth date for the child.
+- a first page will show pregnancy week, tips for this week, and article. the user can change the week by clicking
+on the arrows near week number, when then data will change according to selected week.
+- a screen for tips for current week, each can be checked in as done, or uncheck if note done.
+- a page for contact us will show three buttons: FAQ, New Message, My Messages.
+- FAQ page
+- My Messages: When a woman want to ask a question, she will send us a question, 
+when we answer she will get a notification, and she enters My Messages page to see the answer.
+- New Message
+- Articles page
+- Article page
+
+this description was for mobile applications.
+------------------------------------------------------------
+description for server side java spring boot (which being developed now and you don't need to develop it):
+
+Rests:
+1. Registration 
+2. Verification 
+3. Tips by week (insert/get)
+4. Tips per user(post insert/delete)
+5. Articles by week/category/articleId (both can be null)
+6. Categories get all, post new, bot old/new name
+7. FAQ post/get per week + get all per week(week can be null) + delete + put
+8. Private Messages 
+	- post private questions by user
+	- get all questions(two list answered/not, return question Id)
+	- put answer by admin (verify admin user)
+	- get questions per user
+------------------------------------------------------------
+------------------------------------------------------------
+Management system tables will be:
+Tables:
+1. User - name, approxBirthDate, city, phone, token, oneTimeVerificationCode
+2. Tip - Id, tip, weekNumber(min 1, max 43)
+3. user_tip - id, userId, tipId
+4. Category - Id, Name
+5. Article - Id, categoryId, weekNumber, imagePath(nullable), title, text, videoPath(nullable)
+6. FAQ - Id, question, answer, weekNumber
+7. User Question - Id, question, answer, userId, weekNumber, createDate
+
+management system should manage these tables, CRUD operations, firebase, api intergration with java spring boot server.
+should be build with react, bootstrap template will be provided.
+
+
+Screens:
+1. Tips screen: CRUD -> table: Tip
+2. Users screen: show Users only (no remove or delete or update). table -> User
+3. Users Tips screen: show tip for one user (no remove or delete or update). table -> user_tip
+4. Categories screen: CRUD categories. table -> Category
+5. Articles screen: CRUD articles. table -> Articles
+6. FAQ screen: CRUD FAQ's. table -> FAQ
+7. User Question: Show users questions, let admin answer their questions. table-> User Question
+8. Reports: we will generate some reports, we leave it to the end.
